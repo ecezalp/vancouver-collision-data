@@ -79,14 +79,12 @@ formatData = ({TYPE, X, Y, NEIGHBOURHOOD, HUNDRED_BLOCK, YEAR, MONTH, DAY, HOUR,
   },
 });
 
-var newData = data["features"].reduce((accumulator, {properties}) => {
-
-  if(properties["TYPE"] === "Vehicle Collision or Pedestrian Struck (with Injury)" ||
-  properties["TYPE"] === "Vehicle Collision or Pedestrian Struck (with Fatality)") {
-    accumulator.push(formatData(properties));
-  }
+const newData = data["features"].reduce((accumulator, {properties}) => {
+  if(
+    properties["TYPE"] === "Vehicle Collision or Pedestrian Struck (with Injury)" ||
+    properties["TYPE"] === "Vehicle Collision or Pedestrian Struck (with Fatality)"
+  ) accumulator.push(formatData(properties));
   return accumulator;
-},[]);
+}, []);
 
-fs.writeFile("collision.json", JSON.stringify(newData), () => {}
-)
+fs.writeFile("collision.json", JSON.stringify(newData), () => {});
