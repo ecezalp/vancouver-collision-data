@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.home, .infographics, .map {
+  width: 100%;
+  height: 100%;
+}
+
+.home {
+  background-color: plum;
+}
+
+.infographics {
+  background-color: lightblue;
+}
+
+.map {
+  background-color: lightgray;
+}
