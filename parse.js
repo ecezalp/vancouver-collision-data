@@ -65,18 +65,15 @@ utmToLatLng = (zone, easting, northing, northernHemisphere) => {
 formatData = ({TYPE, X, Y, NEIGHBOURHOOD, HUNDRED_BLOCK, YEAR, MONTH, DAY, HOUR, MINUTE}) => ({
   description: "Vehicle Collision or Pedestrian Struck",
   fatality: TYPE === "Vehicle Collision or Pedestrian Struck (with Fatality)",
-  place: {
-    coordinates: utmToLatLng(10, X, Y, true),
+    latitude: utmToLatLng(10, X, Y, true)["latitude"],
+    longitude: utmToLatLng(10, X, Y, true)["longitude"],
     neighborhood: NEIGHBOURHOOD,
     hundred_block: HUNDRED_BLOCK,
-  },
-  time: {
     year: YEAR,
     month: MONTH,
     day: DAY,
     hour: HOUR,
     minute: MINUTE,
-  },
 });
 
 const newData = data["features"].reduce((accumulator, {properties}) => {
@@ -87,4 +84,4 @@ const newData = data["features"].reduce((accumulator, {properties}) => {
   return accumulator;
 }, []);
 
-fs.writeFile("collision.json", JSON.stringify(newData), () => {});
+fs.writeFile("flat_collision.json", JSON.stringify(newData), () => {});
