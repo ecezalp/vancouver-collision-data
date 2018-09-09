@@ -38,10 +38,10 @@ export default class Map extends React.Component {
     };
 
     const mappedRoute = bikeLanes.reduce((acc, el, index) => {
-        acc["routeLength"] === el.routeLength ?
-          acc["routes"][acc["routes"].length - 1].push([el.longitude, el.latitude]) :
-          acc["routes"].push([[el.longitude, el.latitude]]);
-        acc["routeLength"] = el.routeLength;
+      acc["routeLength"] === el.routeLength ?
+        acc["routes"][acc["routes"].length - 1].push([el.longitude, el.latitude]) :
+        acc["routes"].push([[el.longitude, el.latitude]]);
+      acc["routeLength"] = el.routeLength;
       return acc;
     }, {routeLength: "", routes: []}).routes;
 
@@ -57,12 +57,11 @@ export default class Map extends React.Component {
             width: "100vw"
           }}>
 
-
-          {mappedRoute.map(bikeRoute =>
-            <Layer type="line" layout={lineLayout} paint={linePaint}>
+          <Layer type="line" layout={lineLayout} paint={linePaint}>
+            {mappedRoute.map(bikeRoute =>
               <Feature coordinates={bikeRoute}/>
-            </Layer>
-          )}
+            )}
+          </Layer>
 
           <GeoJSONLayer
             data={COLLISION_SOURCE_OPTIONS}
