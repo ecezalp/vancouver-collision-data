@@ -1,8 +1,8 @@
 import React from "react";
-import ReactMapboxGl, {GeoJSONLayer, Layer, Feature} from "react-mapbox-gl";
+import ReactMapboxGl, {Feature, GeoJSONLayer, Layer} from "react-mapbox-gl";
 
 
-import {COLLISION_SOURCE_OPTIONS, bikeLanes} from "./constants";
+import {bikeLanes, COLLISION_SOURCE_OPTIONS} from "./constants";
 
 export default class Map extends React.Component {
 
@@ -37,13 +37,13 @@ export default class Map extends React.Component {
       'line-width': 3
     };
 
-    const mappedRoute = bikeLanes.reduce((acc, el) => {
-      acc["activeName"] === el.routeName ?
-        acc["routes"][acc["routes"].length -1].push([el.longitude, el.latitude]) :
-        acc["routes"].push([[el.longitude, el.latitude]]);
-      acc["activeName"] = el.routeName;
+    const mappedRoute = bikeLanes.reduce((acc, el, index) => {
+        acc["routeLength"] === el.routeLength ?
+          acc["routes"][acc["routes"].length - 1].push([el.longitude, el.latitude]) :
+          acc["routes"].push([[el.longitude, el.latitude]]);
+        acc["routeLength"] = el.routeLength;
       return acc;
-    }, {activeName: "", routes:[]}).routes;
+    }, {routeLength: "", routes: []}).routes;
 
     return <div className="map">
       <div id="text-map">
@@ -57,15 +57,19 @@ export default class Map extends React.Component {
             width: "100vw"
           }}>
 
-          <Layer type="line" layout={lineLayout} paint={linePaint}>
-            {mappedRoute.map(bikeRoute =>  <Feature coordinates={bikeRoute} />)}
-          </Layer>
+
+          {mappedRoute.map(bikeRoute =>
+            <Layer type="line" layout={lineLayout} paint={linePaint}>
+              <Feature coordinates={bikeRoute}/>
+            </Layer>
+          )}
 
           <GeoJSONLayer
             data={COLLISION_SOURCE_OPTIONS}
             circleLayout={circleLayout}
             circlePaint={circlePaint}
-            circleOnClick={() => {}}
+            circleOnClick={() => {
+            }}
             symbolLayout={symbolLayout}
             symbolPaint={symbolPaint}
           />
