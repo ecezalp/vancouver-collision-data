@@ -2,7 +2,11 @@ import React from "react";
 import ReactMapboxGl, {Feature, GeoJSONLayer, Layer} from "react-mapbox-gl";
 
 
-import {bikeLanes, COLLISION_SOURCE_OPTIONS} from "./constants";
+import {bikeLanes} from "./bikeLaneLineConstants";
+
+import {
+  COLLISION_SOURCE_OPTIONS_FATALITIES,
+  COLLISION_SOURCE_OPTIONS_NON_FATALITIES} from "./collisionPointConstants";
 
 export default class Map extends React.Component {
 
@@ -23,8 +27,12 @@ export default class Map extends React.Component {
 
     const circleLayout = {visibility: 'visible'};
 
-    const circlePaint = {
+    const circlePointFatalities = {
       'circle-color': 'red'
+    };
+
+    const circlePointNonFatalities = {
+      'circle-color': 'orange'
     };
 
     const lineLayout = {
@@ -64,34 +72,34 @@ export default class Map extends React.Component {
           </Layer>
 
           <GeoJSONLayer
-            data={COLLISION_SOURCE_OPTIONS}
+            data={COLLISION_SOURCE_OPTIONS_NON_FATALITIES}
             circleLayout={circleLayout}
-            circlePaint={circlePaint}
+            circlePaint={circlePointNonFatalities}
             circleOnClick={() => {
             }}
             symbolLayout={symbolLayout}
             symbolPaint={symbolPaint}
           />
 
-          {/*<Layer*/}
-          {/*type="symbol"*/}
-          {/*id="marker"*/}
-          {/*layout={{ "icon-image": "marker-15" }}>*/}
-
-          {/*<Feature coordinates={[-123.481747846041145, 48.3233379650232]}/>*/}
-
-          {/*</Layer>*/}
+          <GeoJSONLayer
+            data={COLLISION_SOURCE_OPTIONS_FATALITIES}
+            circleLayout={circleLayout}
+            circlePaint={circlePointFatalities}
+            circleOnClick={() => {
+            }}
+            symbolLayout={symbolLayout}
+            symbolPaint={symbolPaint}
+          />
 
         </Map>
-        {/*{testLayer}*/}
-        {/*{testSource}*/}
       </div>
     </div>;
   }
 }
 
 
-// export default class Map extends React.Component {
+{/*// export default class Map extends React.Component {*/
+}
 //   constructor(props) {
 //     super(props);
 //     this.state = {
