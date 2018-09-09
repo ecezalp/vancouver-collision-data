@@ -1,5 +1,8 @@
 import {connect} from 'react-redux'
-import Map from "../presentationals/Map";
+import React from 'react';
+import Map from '../presentationals/map';
+
+
 
 const mapStateToProps = state => state;
 
