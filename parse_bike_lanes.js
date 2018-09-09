@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-const data = require('./bike_lanes.json');
+const data = require('./bike_lane_routing_second.json');
 
 utmToLatLng = (zone, easting, northing, northernHemisphere) => {
   if (!northernHemisphere) {
@@ -75,4 +75,4 @@ const newData = data.reduce((accumulator, element) => {
   return accumulator;
 }, []);
 
-fs.writeFile("bike_lane_lat_lon.json", JSON.stringify(newData), () => {});
+fs.writeFile("bike_lane_routing_second_coordinates_transformed.json", JSON.stringify(newData), () => {});
