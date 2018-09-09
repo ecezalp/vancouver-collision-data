@@ -1,27 +1,114 @@
 body {
   margin: 0;
+  font-family: "Fira Sans";
+}
+
+a {
+  text-decoration: none;
+  color: rgb(56, 76, 85)
 }
 
 .app-container {
   width: 100vw;
   height: 100vh;
+  color: rgb(56, 76, 85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.home, .infographics, .map {
-  width: 100%;
+.background-container {
   height: 100%;
+  width: 100%;
+  background-color: rgb(165, 215, 205);
+
+  .filler {
+    width: 4vh;
+  }
+
+  .nav-icon {
+    font-size: 4vh;
+    text-align: center;
+  }
+
+  .top-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 10%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .notification {
+      background-color: rgb(152, 226, 212);
+      width: 2vh;
+      height: 2vh;
+      font-size: 1.5vh;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .users-container {
+      display: flex;
+    }
+
+    .logo-container {
+      background-color: #98e2d4;
+      height: 8.5vh;
+      width: 9vh;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+
+      .zero {
+        font-size: 2.8vh;
+        font-weight: bold;
+      }
+      .collisions {
+        font-size: 1.2vh;
+      }
+    }
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(199, 238, 228);
+    border-top: 2px solid white;
+
+    .icon-text {
+      font-size: 1.8vh;
+    }
+  }
+
+  .body-background {
+    padding-top: 10vh;
+
+    .dashboard {
+      width: 100%;
+      padding-top: 5vh;
+      padding-bottom: 10vh;
+    }
+  }
+
+  .new-map {
+    width: 100%;
+  }
 }
 
-.home {
-  background-color: plum;
+#text-map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
-
-.infographics {
-  background-color: lightblue;
-}
-
-.map {
-  background-color: lightgray;
-}
-
-#text-map { position:absolute; top:0; bottom:0; width:100%; }
