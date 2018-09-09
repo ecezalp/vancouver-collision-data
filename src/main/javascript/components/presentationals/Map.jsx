@@ -2,7 +2,7 @@ import React from "react";
 import ReactMapboxGl, {Feature, GeoJSONLayer, Layer} from "react-mapbox-gl";
 
 
-import {bikeLanes} from "./bikeLaneLineConstants";
+import {bikeLanes, shortestPath} from "./bikeLaneLineConstants";
 
 import {
   COLLISION_SOURCE_OPTIONS_FATALITIES,
@@ -40,9 +40,24 @@ export default class Map extends React.Component {
       'line-join': 'round',
     };
 
-    const linePaint = {
+    const lineBikeLanePaint = {
       'line-color': 'green',
       'line-width': 3
+    };
+
+    const lineShortestRoutePaint = {
+      'line-color': 'purple',
+      'line-width': 10
+    };
+
+    const lineSafestRoutePaint = {
+      'line-color': 'hsl(258, 100%, 80%)',
+      'line-width': 2
+    };
+
+    const lineStraightRoutePaint = {
+      'line-color': 'hsl(258, 100%, 50%)',
+      'line-width': 2
     };
 
     const mappedRoute = bikeLanes.reduce((acc, el, index) => {
@@ -53,20 +68,34 @@ export default class Map extends React.Component {
       return acc;
     }, {routeLength: "", routes: []}).routes;
 
+    const mappedShortestRoute = shortestPath.reduce((acc, el, index) => {
+      acc["routeLength"] === el.routeLength ?
+        acc["routes"][acc["routes"].length - 1].push([el.longitude, el.latitude]) :
+        acc["routes"].push([[el.longitude, el.latitude]]);
+      acc["routeLength"] = el.routeLength;
+      return acc;
+    }, {routeLength: "", routes: []}).routes;
+
     return <div className="map">
       <div id="text-map">
         <Map
-          center={[-123.1323, 49.2769]}
+          center={[-123.1204778, 49.280926]}
           style="mapbox://styles/mapbox/streets-v9"
           pitch={[5]}
-          zoom={[13]}
+          zoom={[15]}
           containerStyle={{
             height: "100vh",
             width: "100vw"
           }}>
 
-          <Layer type="line" layout={lineLayout} paint={linePaint}>
+          <Layer type="line" layout={lineLayout} paint={lineBikeLanePaint}>
             {mappedRoute.map(bikeRoute =>
+              <Feature coordinates={bikeRoute}/>
+            )}
+          </Layer>
+
+          <Layer type="line" layout={lineLayout} paint={lineShortestRoutePaint}>
+            {mappedShortestRoute.map(bikeRoute =>
               <Feature coordinates={bikeRoute}/>
             )}
           </Layer>

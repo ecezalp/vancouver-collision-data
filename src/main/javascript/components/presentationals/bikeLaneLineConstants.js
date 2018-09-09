@@ -41789,9 +41789,38 @@ export const bikeLanes = [
     "routeName": "Wales-Duchess",
     "routeLength": 248
   }
-]
+];
 
-
+export const shortestPath = [
+  {
+    "latitude": 49.2805691,
+    "longitude": -123.1249615,
+    "identifier": 1,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2792817,
+    "longitude": -123.1230756,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2824868,
+    "longitude": -123.1181263,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.280527,
+    "longitude": -123.1151768,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+];
 
 // "features": [
 //   {
