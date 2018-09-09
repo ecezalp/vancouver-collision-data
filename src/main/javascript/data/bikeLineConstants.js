@@ -41793,6 +41793,13 @@ export const bikeLanes = [
 
 export const shortestPath = [
   {
+    "latitude": 49.2803245,
+    "longitude": -123.1253377,
+    "identifier": 1,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
     "latitude": 49.2805691,
     "longitude": -123.1249615,
     "identifier": 1,
@@ -41810,6 +41817,70 @@ export const shortestPath = [
     "latitude": 49.2824868,
     "longitude": -123.1181263,
     "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.280527,
+    "longitude": -123.1151768,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+];
+
+export const safestPath = [
+  {
+    "latitude": 49.2803245,
+    "longitude": -123.1253377,
+    "identifier": 1,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2805691,
+    "longitude": -123.1249615,
+    "identifier": 1,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2792817,
+    "longitude": -123.1230756,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2824868,
+    "longitude": -123.1181263,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.280527,
+    "longitude": -123.1151768,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+];
+
+
+
+export const straightPath = [
+  {
+    "latitude": 49.2792817,
+    "longitude": -123.1230756,
+    "identifier": 2,
+    "routeName": "Burrard Brdg",
+    "routeLength": 1059
+  },
+  {
+    "latitude": 49.2773949,
+    "longitude": -123.1200619,
+    "identifier": 1,
     "routeName": "Burrard Brdg",
     "routeLength": 1059
   },

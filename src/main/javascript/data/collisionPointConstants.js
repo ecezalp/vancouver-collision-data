@@ -9,8 +9,8 @@ export const COLLISION_SOURCE_OPTIONS_FATALITIES = {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.042316,
-          49.23594287
+          -123.1252643,
+          49.2806589
         ]
       }
     },
@@ -48603,3 +48603,43 @@ export const COLLISION_SOURCE_OPTIONS_NON_FATALITIES = {
     }
   ]
 };
+
+export const ROUTING_START_POINT = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.1253377,
+          49.2803245
+        ]
+      }
+    }
+  ]
+};
+
+export const ROUTING_END_POINT = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        'marker-color': '#3bb2d0',
+        'marker-size': 'large',
+        'marker-symbol': 'rocket'
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.1151768,
+          49.280527
+        ]
+      }
+    }
+  ]
+}
